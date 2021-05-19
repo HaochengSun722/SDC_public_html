@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<head>
+	<title>London Underground</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="icon" href="img/icon.png" type="image/x-icon"/>
+	<link rel='stylesheet' id='font-css'  href='http://fonts.googleapis.com/css?family=Roboto:400,300,100' type='text/css' media='all' />
+	<link rel='stylesheet' href='./css/style_map.css' type='text/css'/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.easydropdown/2.1.4/themes/easydropdown.css">
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://rawgit.com/highcharts/rounded-corners/master/rounded-corners.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140215244-1"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/round-slider@1.6.1/dist/roundslider.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/round-slider@1.6.1/dist/roundslider.min.js"></script>
+
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/data.js"></script>
+	<script src="https://code.highcharts.com/modules/series-label.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+	<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'UA-140215244-1');
+    </script>
+    
+</head>
+<body>
+<div id='help1'>
+   <div id="help1text">
+   		<div id="text1">
+   		<h2>PREFACE</h2></br>
+   		<p>Hello! Everyone! Welcome to the ‘Interactive Map of the Impact of Covid-19 on the London Tube System’!</p><p> </p>
+   		<p>In this map, you will use a series of interactive measures to identify the changes in the London tube system before and during the impact of Covid-19. The operation path can basically be divided into:</p><p> </p>
+   		<b>Basic mode selection → Select the station you want to observe → Understand the detailed information</b>
+   		<p>If you already understand the process, please click the <b>"SKIP"</b> button; if you are browsing this website for the first time, please click the <b>"NEXT"</b> button!</p></br>
+   		<p>Let's explore the story of the London tube system behind Covid-19 together!</p>
+   		</div>
+   		<button class="mode-btn1" id="btn-SKIP">SKIP</button>
+   		<button class="mode-btn1" id="btn-NEXT">NEXT</button>
+   </div>
+</div>
+<div id='wrapper'>
+	 <!--<div id='helppic'>
+		<img src="img/help.png" alt="help" width="100%" height="100%">
+	 </div>-->	 
+    <div id='map-canvas'></div>
+
+    <div id='help2text'>
+    	<div id="text2">
+    	<p><b>Step 1:</b></br>Let us select a year before or during the pandemic.</p>
+    	</div>
+    	<button class="mode-btn2" id="btn-NEXT2">NEXT</button>
+    </div>
+
+    <div id='help3text'>
+    	<div id="text2">
+    	<p><b>Step 2:</b></br>Here you can select the inbound or outbound flow for all stations.</p>
+    	</div>
+    	<button class="mode-btn2" id="btn-NEXT3">NEXT</button>
+    </div>
+
+    <div id='help4text'>
+    	<div id="text2">
+    	<p><b>Step 3:</b></br>Then you can select a tipical day in a week. Here, Monday to Thursday are combined into one type.</p>
+    	</div>
+    	<button class="mode-btn3" id="btn-NEXT4">NEXT</button>
+    </div>
+
+    <div id='help5text'>
+    	<div id="text2">
+    	<p><b>Step 4:</b></br>Finally, just select a specific time period. When you confirm, the time you selected will be displayed in the navigation bar.</p>
+    	</div>
+    	<button class="mode-btn3" id="btn-NEXT5">NEXT</button>
+    </div>
+
+    <div id='help6text'>
+    	<div id="text2">
+    	<p>Don't forget that you need to confirm every time you change the modes.</br>If you forget the above, you can view the specific operation by clicking on a different logo.</p>
+    	</div>
+    	<button class="mode-btn4" id="btn-COLSE6">Let's do it!</button>
+    </div>
+	
+    <div id='header'>
+     	<div id="mySidenav" class="sidenav">
+	<a href="home.html" id="homepage">
+	  <p><small>Web Portal</small></P>
+	  <p><small>Have an idea of the general content</small></P>
+	  HOMEPAGE</a>
+	<a href="story/1.html" id="story">
+	  <p><small>Telling A Story</small></P>
+	  <p><small> Establish a preliminary understanding</small></P>
+	  STORY</a>
+	<a class="active" href="map.html" id="map">
+	  <p><small>Key Part of Websites</small></P>
+	  <p><small>Explore the pattern by yourself</small></P>
+	  MAP</a>
+	<a href="about.html" id="about">
+	  <p><small>Data and Web-Producers</small></P>		
+	  <p><small> Introduce the relevant background</small></P>
+	  ABOUT</a>
+	</div>
+	</div>
+	
+	<div class = "logo-container">
+		<div class="logo">
+		  <img src="img/icon.png" width = "60px" height = "40px">
+		</div>
+		<div class="logo-text">
+		  <p>London Tube Under COVID-19</p>
+		</div>
+	</div>	
+
+	
+    <div id='Modetitle'>
+		<img class="info" src="img/select.png" alt="info" width="18" height="18">
+		<div class="titletext">SELECT MODE</div>
+	</div>
+	 
+	<div id='Modeselect'>
+		<!--<div id='legendimg'><img id="lg" src="img/legend.png" alt="legend" width="100%" height="100%"></div>-->
+
+	<div id='selectyear'>
+		<div class="titleyear">YEAR</div>
+		<div id='yearswitch'>
+			<select class="dropdown" id="yearselect">
+				<option class="yearquery" year_value="2019" selected="selected">2019</option>
+				<option class="yearquery" year_value="2020">2020</option>
+			</select>
+		</div>
+		<div class="mode-background" id="back-year"></div>
+		<div class="mode-logo" id="logo-year">
+			<img src="img/year.png" alt="close" width="30" height="30">
+		</div>>
+	</div>		
+		
+		<div id="directselect">
+			<div class="titledirect">DIRECT</div>
+			<div class="directvalue">
+				<select class="dropdown" id="dirselect">
+					<option class="dirquery" dir_value="IN" value="IN" selected="selected">Entry</option>
+					<option class="dirquery" dir_value="OUT" value="OUT">Exit</option>
+				</select>
+			</div>
+			<div class="mode-background" id="back-dir"></div>
+			<div class="mode-logo" id="logo-dir">
+				<img src="img/direct.png" alt="close" width="30" height="30">
+			</div>>
+		</div>
+		
+		<div id="dateselect">
+			<div class="titletext2">DATE</div>
+			<div class="datevalue">
+				<select class="dropdown" id="dayselect">
+					<option class="dayquery" day_value="MTT" value="MTT" selected="selected">Monday to Thursday</option>
+					<option class="dayquery" day_value="FRI" value="FRI">Friday</option>
+					<option class="dayquery" day_value="SAT" value="SAT">Saturday</option>
+					<option class="dayquery" day_value="SUN" value="SUN">Sunday</option>
+				</select>
+			</div>
+			<div class="mode-background" id="back-date"></div>
+			<div class="mode-logo" id="logo-date">
+				<img src="img/date.png" alt="close" width="30" height="30">
+			</div>>
+		</div>
+
+		<div id="timeselect">
+			<div class="titletext3">TIME:</div>
+			<div class="timevalue">
+				<input type="range" id="timemarks" list="tickmarks" min="1" max="24" step="1">
+				<datalist id="tickmarks">
+				<option class="timequery" time_value="1"></option>
+				<option class="timequery" time_value="2"></option>
+				<option class="timequery" time_value="3"></option>
+				<option class="timequery" time_value="4"></option>
+				<option class="timequery" time_value="5"></option>
+				<option class="timequery" time_value="6"></option>
+				<option class="timequery" time_value="7"></option>
+				<option class="timequery" time_value="8"></option>
+				<option class="timequery" time_value="9"></option>
+				<option class="timequery" time_value="10"></option>
+				<option class="timequery" time_value="11"></option>
+				<option class="timequery" time_value="12" label="12:00">12:00</option>
+				<option class="timequery" time_value="13"></option>
+				<option class="timequery" time_value="14"></option>
+				<option class="timequery" time_value="15"></option>
+				<option class="timequery" time_value="16"></option>
+				<option class="timequery" time_value="17"></option>
+				<option class="timequery" time_value="18"></option>
+				<option class="timequery" time_value="19"></option>
+				<option class="timequery" time_value="20"></option>
+				<option class="timequery" time_value="21"></option>
+				<option class="timequery" time_value="22"></option>
+				<option class="timequery" time_value="23" label="23:00">23:00</option>
+				<option class="timequery" time_value="24" label="00:00">00:00</option>
+				</datalist>
+			</div>
+			<div class="t-value" id="thefirst">01:00</div>
+			<p id="themiddle" class="t-value"></p>
+			<div class="t-value" id="thelast">24:00</div>
+			<div class="mode-background" id="back-time"></div>		
+			<div id="logo-time">
+				<img src="img/time.png" alt="close" width="30" height="30">
+			</div>>			
+		</div>
+		
+		<button class="mode-btn" id="btn-confirm">Confirm</button>
+		<button class="mode-btn" id="btn-clear">Clear</button>
+	</div>
+
+		<div id='left'>
+		<div id='left1'>
+			<div class="titletext5">LEGEND</div>
+		</div>
+		<div id='left3'>
+			<div id='switch'>
+				<img id="lr" src="img/right.png" alt="switch">
+			</div>
+		</div>
+		<div id="ledgend-logo">
+			<img src="img/info.png" alt="ledgend" width="20" height="20">
+		</div>
+		<div class="ledgend-line1" id="tube-line1">
+			<img src="img/bakerloo.png" alt="line" width="40" height="20">Bakerloo
+		</div>
+		<div class="ledgend-line1" id="tube-line2">
+			<img src="img/central.png" alt="line" width="40" height="20">Central
+		</div>
+		<div class="ledgend-line1" id="tube-line3">
+			<img src="img/circle.png" alt="line" width="40" height="20">Circle
+		</div>
+		<div class="ledgend-line1" id="tube-line4">
+			<img src="img/district.png" alt="line" width="40" height="20">District
+		</div>
+		<div class="ledgend-line1" id="tube-line5">
+			<img src="img/DLR.png" alt="line" width="40" height="20">DLR
+		</div>
+		<div class="ledgend-line2" id="tube-line6">
+			<img src="img/jubilee.png" alt="line" width="40" height="20">Jubilee
+		</div>
+		<div class="ledgend-line2" id="tube-line7">
+			<img src="img/metro.png" alt="line" width="40" height="20">Metropolitan
+		</div>
+		<div class="ledgend-line2" id="tube-line8">
+			<img src="img/northern.png" alt="line" width="40" height="20">Northern
+		</div>
+		<div class="ledgend-line2" id="tube-line9">
+			<img src="img/piccadilly.png" alt="line" width="40" height="20">Piccadilly
+		</div>
+		<div class="ledgend-line2" id="tube-line10">
+			<img src="img/victoria.png" alt="line" width="40" height="20">Victoria
+		</div>
+		<div class="ledgend-line3" id="tube-line11">
+			<img src="img/tfl.png" alt="line" width="40" height="20">Tfl Rail
+		</div>
+		<div class="ledgend-line3" id="tube-line12">
+			<img src="img/tram.png" alt="line" width="40" height="20">Tram
+		</div>
+		<div class="ledgend-line3" id="tube-line13">
+			<img src="img/waterloo.png" alt="line" width="40" height="20">Waterloo & City
+		</div>
+		<div class="ledgend-line3" id="tube-line14">
+			<img src="img/overground.png" alt="line" width="40" height="20">London Overground
+		</div>		
+		<div class="ledgend-line3" id="tube-line15">
+			<img src="img/hammer.png" alt="line" width="40" height="20">Hammersmith & City
+		</div>
+		<div class="ledgend-station" id="tube-stat1">
+			<img src="img/size.png" alt="line" width="40" height="20">Flow Amount
+		</div>
+		<div class="ledgend-station" id="tube-stat2">
+			<img src="img/not1.png" alt="line" width="20" height="20">Two-Peak Pattern
+		</div>		
+		<div class="ledgend-station" id="tube-stat3">
+			<img src="img/not2.png" alt="line" width="20" height="20">Morning-Peak Pattern
+		</div>
+		<div class="ledgend-station" id="tube-stat4">
+			<img src="img/not3-2.png" alt="line" width="20" height="20">Evening-Peak Pattern
+		</div>	
+	</div>
+	
+
+	<div id='station-details'>
+		<div id="close">
+			<img src="img/close.png" alt="close" width="18" height="18" onclick="hidebar()" id="x">
+		</div>
+	    <div id='detail-title'>STATION DETAILS:</div>
+		<div class='station-title' id='title-name'>STATION NAME:</div>
+		<div class='station-text' id='text-name'>Caledonian Road and Barnsbury</div>		
+		<div class='station-title' id='title-mode'>MODE:</div>
+		<div class='station-text' id='text-mode'>LU</div>
+		<div class='station-title' id='title-nlc'>NLC:</div>
+		<div class='station-text' id='text-nlc'>750</div>
+		<div class='station-title' id='title-asc'>ASC:</div>
+		<div class='station-text' id='text-asc'>ABRd</div>
+		<div class='station-title' id='title-des'>STATION DESCRIPTION:</div>
+		<div id='station-description'>
+			<p>During 2020, 
+			the total inbound volume of this tube station on <b id="datedescrp"></b> has dropped by <b id="drop1"></b>% comapared to last year,
+			and the outbound volume has dropped by <b id="drop2"></b>%. 
+			The in-flow pattern <b id="inside1"></b>, 
+			and the out-flow pattern <b id="inside2"></b>.</p>
+		</div>
+		<div class='flow-chart' id='in-chart'>
+			<div class='station-title' id='title-chart1'>INBOUND FLOWS:</div>	
+			<figure class="highcharts-figure">
+			  <div id="container"></div>
+			</figure>
+		</div>
+		<div class='flow-chart' id='out-chart'>
+			<div class='station-title' id='title-chart2'>OUTBOUND FLOWS:</div>		   
+			<figure class="highcharts-figure2">
+			  <div id="container2"></div>
+			</figure>			
+		</div>
+		<div id='detail-background'></div>
+	</div>	
+
+</div>
+
+<!--<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyATCjbEhaVw8X9eoJcjodoyE3rBiA_Qp6g&libraries=visualization"></script>-->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATCjbEhaVw8X9eoJcjodoyE3rBiA_Qp6g&libraries=visualization"></script>
+<script type='text/javascript' src='http://arshaw.com/xdate/downloads/0.8/xdate.js'></script>
+<script type='text/javascript' src='./js/mapStyle.js'></script>
+<script type='text/javascript' src='./js/main.js'></script>
+<script type='text/javascript' src='js/easydropdown.js' ></script>
+
+<script type='text/javascript' src='js/flowchart.js' ></script>
+
+</body>
+</html>

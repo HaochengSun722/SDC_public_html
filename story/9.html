@@ -1,0 +1,245 @@
+
+<html>
+
+<head>
+
+  <meta charset='UTF-8'>
+  <meta name='description' content='Story6'>
+  <meta name='author' content='Bravo'>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
+  <link rel='stylesheet' type='text/css' href='../css/style.css'>
+  <link rel="icon" href="../img/icon.png" type="image/x-icon"/>	
+  <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+	<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+</head>
+
+<body id = "story6">
+  
+	<div class = "logo-container">
+	<div class="logo">
+	  <img src="../img/icon.png" width = "60px" height = "40px">
+	</div>
+	<div class="logo-text">
+	  <p>London Tube Under COVID-19</p>
+	</div>
+	</div>
+			
+	<div id="mySidenav" class="sidenav">
+	<a href="../home.html" id="homepage">
+	  <p><small>Web Portal</small></P>
+	  <p><small>Have an idea of the general content</small></P>
+	  HOMEPAGE</a>
+	<a class="active" href="1.html" id="story">
+	  <p><small>Telling A Story</small></P>
+	  <p><small> Establish a preliminary understanding</small></P>
+	  STORY</a>
+	<a href="../map.html" id="map">
+	  <p><small>Key Part of Websites</small></P>
+	  <p><small>Explore the pattern by yourself</small></P>
+	  MAP</a>
+	<a href="../about.html" id="about">
+	  <p><small>Data and Web-Producers</small></P>		
+	  <p><small> Introduce the relevant background</small></P>
+	  ABOUT</a>
+	</div>
+
+	<div class="myStorynav" class="storynav">
+	  <a href="1.html" id="bullet1">
+		<img src="../img/timeBullet1.png"></a>
+	  <a href="2.html" id="bullet2">
+		<img src="../img/timeBullet1.png"></a>
+	  <a href="3.html" id="bullet3">
+		<img src="../img/timeBullet1.png"></a>
+	  <a href="4.html" id="bullet4">
+		<img src="../img/timeBullet1.png"></a>
+	  <a href="5.html" id="bullet5">
+		<img src="../img/timeBullet1.png"></a>
+	  <a href="6.html" id="bullet6">
+		<img src="../img/timeBullet1.png"></a>
+	  <a href="7.html" id="bullet7">
+		<img src="../img/timeBullet1.png"></a>
+	  <a href="8.html" id="bullet8">
+		<img src="../img/timeBullet1.png"></a>
+	  <a class="active" href="9.html" id="bullet9">
+		<img src="../img/timeBullet1.png"></a>
+	  <a href="10.html" id="bullet10">
+		<img src="../img/timeBullet1.png"></a>
+	  <a href="11.html" id="bullet11">
+		<img src="../img/timeBullet1.png"></a>
+	  <a href="12.html" id="bullet12">
+		<img src="../img/timeBullet1.png"></a>
+	  <a href="13.html" id="bullet13">
+		<img src="../img/timeBullet1.png"></a>
+	  <a href="14.html" id="bullet14">
+		<img src="../img/timeBullet1.png"></a>
+	  <a href="15.html" id="bullet15">
+		<img src="../img/timeBullet1.png"></a>
+	</div>
+
+	<div class="next">
+	  <a href="10.html">
+		<img src="../img/nextButton1.png">
+	  </a>
+	</div>
+			
+	<div class="story-container">
+	  <div class="heading"><p>DATA ANALYSIS</p></div>
+	  <div class="subheading"><p>Decline of Journeys in Boroughs</p></div> 
+	  <div class="content" id="content6-2">
+		<p>In terms of absolute declines, Westminster experienced the greatest decline of 4619379, followed by Camden and Newham. The most minor declines were seen in Bromley and Croydon, with reductions of 21,435 and 10,650, respectively.</p>
+	  </div>
+	  <div id="img6-2"></div>
+	</div>	
+
+<script type="text/javascript">
+Highcharts.chart("img6-2", {
+    chart: {
+    	height: 430,
+       width: 780,
+       backgroundColor: false,
+        type: 'column'
+    },
+    title: {
+        text: 'Total COVID-19 cases VS. Drop in Daliy Journeys in different Boroughs'
+    },
+    subtitle: {
+        text: 'Source: <a href="http://crowding.data.tfl.gov.uk/">TFL</a>'
+    },
+    xAxis: {
+        categories: [
+            'Barking and Dagenham',
+'Barnet',
+'Brent',
+'Bromley',
+'Camden',
+'Croydon',
+'Ealing',
+'Enfield',
+'Greenwich',
+'Hackney',
+'Hammersmith and Fulham',
+'Haringey',
+'Harrow',
+'Havering',
+'Hillingdon',
+'Hounslow',
+'Islington',
+'Kensington and Chelsea',
+'Lambeth',
+'Lewisham',
+'Merton',
+'Newham',
+'Redbridge',
+'Richmond upon Thames',
+'Southwark',
+'Tower Hamlets',
+'Waltham Forest',
+'Wandsworth',
+'Westminster'
+        ]
+    },
+    yAxis: [{
+        min: 0,
+        title: {
+            text: 'Total cases'
+        }
+    },{
+        min: 0,
+        title: {
+            text: 'Drop in Journeys'
+        },opposite: true
+    }],
+    legend: {
+        shadow: false
+    },
+    tooltip: {
+        shared: true
+    },
+
+    plotOptions: {
+        column: {
+            grouping: false,
+            shadow: false,
+            borderWidth: 0
+        }
+    },
+
+    series: [{
+        name: 'Total cases of COVID-19',
+        color: 'rgba(186,60,61,.9)',
+        yAxis: 1,
+        data: [18844320
+,80665678
+,98575975
+,93456693
+,59742150
+,171421960
+,106326600
+,90105444
+,48288832
+,36592176
+,31665016
+,45450464
+,43614015
+,33875442
+,71188340
+,43123054
+,35258476
+,14384337
+,78519079
+,66231176
+,44832540
+,129293658
+,63184492
+,19976892
+,48010590
+,114713531
+,41177664
+,46814385
+,64967904
+],
+        pointPadding: 0.4,
+        pointPlacement: -0.2
+    }, {
+        name: 'Decline in Journeys',
+        color: 'rgba(248,161,63,1)',
+        data: [195724.9352
+,442683.2574
+,708315.3592
+,21435.57431
+,1740022.226
+,10650.02504
+,571848.7202
+,198417.3563
+,363703.7008
+,339139.719
+,481779.7751
+,562621.7478
+,256600.6936
+,182626.2102
+,206781.3272
+,174751.2836
+,1070374.244
+,1026873.148
+,560906.1247
+,190387.1524
+,265402.5291
+,1451901.038
+,390582.8666
+,137133.1466
+,534393.7422
+,929602.6081
+,481125.0239
+,408974.2397
+,4619378.542
+],
+        pointPadding: 0.3,
+        pointPlacement: -0.2
+    }]
+});
+
+</script>
+
+</body>	
